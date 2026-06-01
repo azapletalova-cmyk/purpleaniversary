@@ -513,13 +513,21 @@
     position: absolute; top: 12px; right: 12px; z-index: 50;
     background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
     color: #1a1430;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    padding: 10px 14px; border-radius: 12px;
-    font-size: 13px; font-weight: 800; cursor: pointer;
+    border: 3px solid white;
+    padding: 12px 18px; border-radius: 14px;
+    font-size: 14px; font-weight: 800; cursor: pointer;
     font-family: inherit; display: flex; align-items: center; gap: 6px;
-    box-shadow: 0 4px 14px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 6px 18px rgba(255, 140, 0, 0.6), 0 0 0 0 rgba(255, 215, 0, 0.8);
     transition: transform 0.15s;
+    animation: editPulse 2s ease-in-out infinite;
   }
+  @keyframes editPulse {
+    0%, 100% { box-shadow: 0 6px 18px rgba(255, 140, 0, 0.6), 0 0 0 0 rgba(255, 215, 0, 0.8); }
+    50% { box-shadow: 0 6px 18px rgba(255, 140, 0, 0.6), 0 0 0 12px rgba(255, 215, 0, 0); }
+  }
+  .edit-toggle:hover { transform: scale(1.08); animation: none; }
+  .edit-toggle:active { transform: scale(0.96); }
+  .edit-toggle.active { animation: none; }
   .edit-toggle:hover { transform: scale(1.05); }
   .edit-toggle:active { transform: scale(0.96); }
   .edit-toggle.active {
@@ -1131,14 +1139,23 @@
                 <div class="popover-list-item">🥖 Gluten-free options available</div>
               </div>`
     },
-    { id: 'coffee', x: 64.0, y: 60.0, icon: '☕', label: 'Coffee Station', tagline: 'Barista-made', title: 'Coffee Station',
-       html: `<p>Enjoy <strong>unlimited barista-made specialty coffee</strong> throughout the afternoon.</p>
+    { id: 'coffee', x: 64.0, y: 60.0, icon: '☕', label: 'Coffee Station & Chill Zone', tagline: 'Coffee + relax corner', title: 'Coffee Station & Chill Zone',
+       html: `<p><strong>Coffee Station</strong></p>
+              <p>Enjoy <strong>unlimited barista-made specialty coffee</strong> throughout the afternoon.</p>
               <div class="popover-list">
                 <div class="popover-list-item">☕ Espresso, Cappuccino, Café Latte & Flat White (also on ICE)</div>
                 <div class="popover-list-item">🧊 Espresso Tonic & Espresso Crodino</div>
                 <div class="popover-list-item">🍵 Premium teas, cocoa & babyccino</div>
               </div>
-              <p style="margin-top:12px;font-size:13px;color:#a89cd9;">Available 15:00–19:00.</p>`
+              <p style="margin-top:12px;font-size:13px;color:#a89cd9;">Available 15:00–19:00.</p>
+
+              <p style="margin-top:16px;"><strong>Chill Zone</strong></p>
+              <p>Need a break from all the fun? Relax in our family-friendly chill area right next to the coffee station.</p>
+              <div class="popover-list">
+                <div class="popover-list-item">🧺 Blankets and comfortable seating</div>
+                <div class="popover-list-item">👨‍👩‍👧 Perfect spot for families with children</div>
+                <div class="popover-list-item">💬 A relaxed place to unwind, chat, and enjoy your coffee</div>
+              </div>`
     },
     { id: 'volleyball', x: 14.42, y: 10.77, icon: '🏐', label: 'Volleyball Court', tagline: 'Purple Team only', title: 'Volleyball Court',
        html: `<p>The beach volleyball court is <strong>reserved exclusively for the Purple Team</strong> throughout the event.</p>
